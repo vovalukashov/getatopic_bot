@@ -1,0 +1,36 @@
+{
+  "name": "getatopic_bot",
+  "version": "1.0.0",
+  "description": "getatopic_bot",
+  "main": "dist/app.js",
+  "repository": "https://github.com/vovalukashov/getatopic_bot",
+  "author": "vovalukashov <luka911a@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "distribute": "yarn build-ts && node dist/app.js",
+    "develop": "concurrently -k -i -p \"[{name}]\" -n \"Node,TypeScript\" -c \"yellow.bold,cyan.bold\" \"yarn watch-js\" \"yarn watch-ts\"",
+    "build-ts": "tsc --skipLibCheck",
+    "watch-ts": "tsc -w --skipLibCheck",
+    "watch-js": "nodemon dist/app.js"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.10.18",
+    "@types/node": "^15.12.2",
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.1"
+  },
+  "dependencies": {
+    "@typegoose/typegoose": "^7.6.1",
+    "dotenv": "^10.0.0",
+    "module-alias": "^2.2.2",
+    "mongoose": "5.12.13",
+    "telegraf": "^4.3.0",
+    "telegraf-i18n": "^6.6.0",
+    "typescript": "^4.3.2"
+  },
+  "_moduleAliases": {
+    "@": "dist"
+  }
+}

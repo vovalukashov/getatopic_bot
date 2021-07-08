@@ -26,6 +26,8 @@ bot.command('start', sendStart)
 bot.action(localeActions, setLanguage)
 bot.action('topic', sendTopic)
 
+bot.on('text', sendTopic)
+
 // Errors
 bot.catch(console.error)
 // Start bot

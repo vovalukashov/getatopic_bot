@@ -24,7 +24,10 @@ bot.command('language', sendLanguage)
 bot.command('start', sendStart)
 // Actions
 bot.action(localeActions, setLanguage)
-bot.action('topic', sendTopic)
+bot.action('topic', async (ctx) => {
+  await ctx.answerCbQuery()
+  await sendTopic(ctx)
+})
 
 bot.on('text', sendTopic)
 
